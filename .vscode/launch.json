@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Attach to Kubernetes Pod (Go)",
+            "type": "cloudcode.kubernetes",
+            "request": "attach",
+            "language": "Go",
+            "debugPort": 40000,
+            "podSelector": {
+                "app": "debug-k8s-pod"
+            },
+            "localRoot": "${workspaceFolder}",
+            "remotePath": "",
+            "remoteRoot": "/"
+        }
+    ]
+}

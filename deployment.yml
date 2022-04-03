@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: debug-k8s-pod
+spec:
+  selector:
+    matchLabels:
+      app: debug-k8s-pod
+  template:
+    metadata:
+      labels:
+        app: debug-k8s-pod
+    spec:
+      imagePullSecrets:
+      - name: docker-registry-auth
+      containers:
+      - name: debug-k8s-pod
+        image: codinghuang/debug-k8s-pod:v0.0.2
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
+        - containerPort: 40000
